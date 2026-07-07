@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Connect | SEND IT LEADERS</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body style="background: #f8fafc;">
+
+    <header id="header" class="active">
+        <div class="nav-flex">
+            <a href="index.html" class="brand" style="color: var(--navy);">SEND IT <span>LEADERS</span></a>
+            <ul class="menu-list">
+                <li><a href="index.html" style="color: var(--navy);">Home</a></li>
+                <li><a href="about.html" style="color: var(--navy);">Our Vision</a></li>
+                <li><a href="programs.html" style="color: var(--navy);">Impact</a></li>
+                <li><a href="contact.html" style="color: var(--navy);">Connect</a></li>
+                <li><a href="give.html" class="btn-cta-nav" style="background: var(--navy); color: var(--white) !important;">Give Hope</a></li>
+            </ul>
+        </div>
+    </header>
+
+    <section class="inner-masthead" style="height: 45vh;">
+        <div class="inner-hero-parallax" style="background-image: linear-gradient(rgba(0,33,71,0.8), rgba(0,33,71,0.9)), url('https://images.unsplash.com/photo-1523240795612-9a054b0db644?q=80&w=2400');"></div>
+        <div class="inner-hero-inner">
+            <h1>Connect With Us</h1>
+            <p>Engage People, Problems, and Purpose</p>
+        </div>
+    </section>
+
+    <section class="section-flow visible" style="padding-top: 50px;">
+        <div class="form-wrapper">
+            <div style="text-align: center; margin-bottom: 40px;">
+                <h2 style="font-size: 3rem; margin-bottom: 10px;">Send a Message</h2>
+                <p style="color: var(--text-muted);">Reach out for speaking engagements, revitalization evaluations, or pastoral care.</p>
+            </div>
+
+            <form action="#" method="POST">
+                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px;">
+                    <div class="form-group">
+                        <label for="fname">First Name</label>
+                        <input type="text" id="fname" class="form-control" placeholder="John" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="lname">Last Name</label>
+                        <input type="text" id="lname" class="form-control" placeholder="Doe" required>
+                    </div>
+                </div>
+                
+                <div class="form-group">
+                    <label for="email">Email Address</label>
+                    <input type="email" id="email" class="form-control" placeholder="john@example.com" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="subject">Reason for Contact</label>
+                    <select id="subject" class="form-control" required>
+                        <option value="">Select an option...</option>
+                        <option value="speaking">Speaking & Teaching Inquiry</option>
+                        <option value="counseling">Counseling & Consolation</option>
+                        <option value="evaluation">Revitalization Evaluation</option>
+                        <option value="other">General Inquiry</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="message">Message</label>
+                    <textarea id="message" class="form-control" placeholder="How can we help you?" required></textarea>
+                </div>
+
+                <button type="submit" class="submit-btn">Send Message</button>
+            </form>
+        </div>
+        
+        <div style="text-align: center; margin-top: 80px;">
+            <h3 style="font-family: 'Playfair Display', serif; font-size: 2rem; color: var(--navy); margin-bottom: 15px;">Global Headquarters</h3>
+            <p style="font-size: 1.2rem; color: var(--slate);">Matthew Gullion, President<br>42 W. Gordon St.<br>Bel Air, MD 21014</p>
+        </div>
+    </section>
+
+    <footer>
+        <div class="footer-main-grid">
+            <div>
+                <div class="footer-logo">SEND IT <span>LEADERS</span></div>
+                <p>Equipping individuals to lead with integrity. Organized under Section 501(c)(3).</p>
+            </div>
+            <div>
+                <h4>Explore</h4>
+                <a href="about.html">Our Vision</a>
+                <a href="programs.html">Impact Programs</a>
+                <a href="contact.html">Connect</a>
+            </div>
+            <div>
+                <h4>Global HQ</h4>
+                <p>Matthew Gullion<br>42 W. Gordon St.<br>Bel Air, MD 21014</p>
+            </div>
+            <div>
+                <h4>Support</h4>
+                <a href="give.html" class="btn-cta-nav">Donate Today</a>
+            </div>
+        </div>
+        <div style="margin-top: 120px; text-align: center; opacity: 0.5;">
+            <p>&copy; 2026 SEND IT Incorporated. All Rights Reserved.</p>
+        </div>
+    </footer>
+</body>
+</html>

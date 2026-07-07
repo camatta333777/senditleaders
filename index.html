@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SEND IT LEADERS | The Pursuit of Truth</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <div id="site-loader">
+        <div class="intro-text-wrapper">
+            <div class="intro-word word-1">Seek</div>
+            <div class="intro-word word-2">Engage</div>
+            <div class="intro-word word-3">Nourish</div>
+            <div class="intro-word word-4">Direct in Truth</div>
+        </div>
+    </div>
+
+    <header id="header">
+        <div class="nav-flex">
+            <a href="index.html" class="brand">SEND IT <span>LEADERS</span></a>
+            <ul class="menu-list">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="about.html">Our Vision</a></li>
+                <li><a href="programs.html">Impact</a></li>
+                <li><a href="contact.html">Connect</a></li>
+                <li><a href="give.html" class="btn-cta-nav">Give Hope</a></li>
+            </ul>
+        </div>
+    </header>
+
+    <section class="masthead">
+        <div class="hero-parallax"></div>
+        <div class="hero-inner">
+            <h1>Equipping Leaders.<br>Strengthening Resilience.</h1>
+            <p>We develop purpose-driven individuals to lead with truth and integrity.</p>
+            <a href="give.html" class="btn-cta-nav" style="background: var(--gold); padding: 25px 60px; font-size: 1rem;">JOIN THE MOVEMENT</a>
+        </div>
+    </section>
+
+    <div class="impact-ribbon">
+        <span>Seek</span>
+        <span>Engage</span>
+        <span>Nourish</span>
+        <span>Direct</span>
+    </div>
+
+    <section class="section-flow">
+        <div class="modern-grid">
+            <div class="content-side">
+                <div class="divider-gold"></div>
+                <h2>A Foundation of Spiritual Resilience.</h2>
+                <p style="font-size: 1.5rem; color: var(--slate); margin-bottom: 40px;">SEND IT Incorporated exists to meet people exactly where they are. We equip leaders to navigate complex problems with positive change and unwavering productivity through the pursuit of truth.</p>
+                <a href="about.html" class="btn-cta-nav" style="background: var(--navy); color: white !important;">LEARN OUR VISION</a>
+            </div>
+            <div class="img-frame">
+                <img src="https://images.unsplash.com/photo-1529070538774-1843cb3265df?q=80&w=1400" alt="Resilient Communities">
+            </div>
+        </div>
+    </section>
+
+    <section class="section-flow" style="background: #f1f5f9;">
+        <div class="flex-center">
+            <h2>Our Global Mandate</h2>
+            <div class="feature-box">
+                <p style="font-size: 1.6rem; font-weight: 300;">We are organized exclusively for charitable, religious, and educational purposes. From leadership development to global humanitarian services, our goal is to empower the vulnerable and the visionary alike.</p>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="footer-main-grid">
+            <div>
+                <div class="footer-logo">SEND IT <span>LEADERS</span></div>
+                <p>Equipping individuals to lead with integrity. Organized under Section 501(c)(3).</p>
+            </div>
+            <div>
+                <h4>Explore</h4>
+                <a href="about.html">Our Vision</a>
+                <a href="programs.html">Impact Programs</a>
+                <a href="contact.html">Connect</a>
+            </div>
+            <div>
+                <h4>Global HQ</h4>
+                <p>42 W. Gordon St.<br>Bel Air, MD 21014</p>
+            </div>
+            <div>
+                <h4>Support</h4>
+                <a href="give.html" class="btn-cta-nav">Donate Today</a>
+            </div>
+        </div>
+        <div style="margin-top: 120px; text-align: center; opacity: 0.5;">
+            <p>&copy; 2026 SEND IT Incorporated. All Rights Reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        // Header Transformation
+        window.addEventListener('scroll', () => {
+            const header = document.getElementById('header');
+            if (window.scrollY > 150) {
+                header.classList.add('active');
+            } else {
+                header.classList.remove('active');
+            }
+        });
+
+        // Scroll Reveal Intersection Observer
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, { threshold: 0.15 });
+
+        document.querySelectorAll('.section-flow').forEach(section => {
+            observer.observe(section);
+        });
+
+        // Intro Sequence Removal
+        window.addEventListener('load', () => {
+            setTimeout(() => {
+                document.getElementById('site-loader').classList.add('hidden');
+            }, 6200);
+        });
+    </script>
+</body>
+</html>
