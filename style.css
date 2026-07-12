@@ -70,8 +70,16 @@ header.active {
 
 .nav-flex { display: flex; justify-content: space-between; align-items: center; max-width: 1800px; margin: 0 auto; }
 .brand { font-family: 'Playfair Display', serif; font-size: 2.2rem; color: var(--white); text-decoration: none; font-weight: 900; letter-spacing: -2px; }
+.brand { display: flex; align-items: center; gap: 12px; }
+.brand-logo { height: 50px; width: auto; }
+header.active .brand-logo { height: 45px; }
 .brand span { color: var(--gold); }
 header.active .brand { color: var(--navy); }
+
+/* Hamburger Menu Button */
+.hamburger { display: none; background: none; border: none; cursor: pointer; padding: 8px; z-index: 9999; }
+.hamburger span { display: block; width: 28px; height: 3px; background: var(--white); margin: 5px 0; border-radius: 2px; transition: 0.3s; }
+header.active .hamburger span { background: var(--navy); }
 
 .menu-list { list-style: none; display: flex; gap: 55px; align-items: center; }
 .menu-list a { text-decoration: none; color: var(--white); font-weight: 800; text-transform: uppercase; font-size: 0.75rem; letter-spacing: 3.5px; transition: 0.3s; }
@@ -221,69 +229,97 @@ textarea.form-control { resize: vertical; min-height: 150px; }
 /* Mobile Phones (iPhones, Androids) */
 @media (max-width: 768px) {
     /* Typography adjustments to prevent horizontal scrolling */
-    .hero-inner h1 { font-size: 3.5rem; letter-spacing: -2px; margin-bottom: 20px; }
-    .hero-inner p { font-size: 1.2rem; margin-bottom: 30px; }
-    .inner-hero-inner h1 { font-size: 3rem; }
-    h2 { font-size: 2.8rem; margin-bottom: 30px; }
-    
+    .hero-inner h1 { font-size: 3rem; letter-spacing: -2px; margin-bottom: 20px; }
+    .hero-inner p { font-size: 1.1rem; margin-bottom: 30px; padding: 0 10px; }
+    .inner-hero-inner h1 { font-size: 2.8rem; }
+    h2 { font-size: 2.4rem; margin-bottom: 25px; }
+
     /* Intro splash text scaling */
-    .intro-word { font-size: 3rem; width: auto; letter-spacing: 0; }
-    .word-4 { font-size: 3.2rem; }
-    
-    /* Navigation - Stacks the logo and links beautifully */
-    header { padding: 1.5rem 5%; }
-    header.active { padding: 1rem 5%; }
-    .nav-flex { flex-direction: column; gap: 15px; }
-    .menu-list { flex-wrap: wrap; justify-content: center; gap: 15px; }
-    .menu-list a { font-size: 0.7rem; letter-spacing: 2px; }
-    .btn-cta-nav { padding: 10px 20px; font-size: 0.8rem !important; }
+    .intro-word { font-size: 2.5rem; width: auto; letter-spacing: 0; }
+    .word-4 { font-size: 2.8rem; }
+
+    /* Mobile Navigation - Hamburger menu */
+    header { padding: 1rem 5%; }
+    header.active { padding: 0.8rem 5%; }
+    .nav-flex { flex-direction: row; flex-wrap: nowrap; }
+    .hamburger { display: block; }
+    .brand { font-size: 1.6rem; }
+    .brand-logo { height: 40px; }
+    header.active .brand-logo { height: 38px; }
+
+    .menu-list {
+        display: none;
+        position: fixed;
+        top: 0; left: 0;
+        width: 100%; height: 100vh;
+        background: var(--navy);
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        gap: 30px;
+        z-index: 9998;
+    }
+    .menu-list.open { display: flex; }
+    .menu-list a { color: var(--white) !important; font-size: 1.1rem !important; letter-spacing: 3px; }
+    .menu-list .btn-cta-nav { background: var(--gold) !important; color: var(--navy) !important; padding: 15px 40px; }
 
     /* Spacing & Layout Constraints */
-    :root { --section-gap: 80px; }
+    :root { --section-gap: 60px; }
     .section-flow { padding: var(--section-gap) 5%; }
-    
+
     /* Changes the impact ribbon from horizontal to vertical */
-    .impact-ribbon { 
-        flex-direction: column; 
-        gap: 20px; 
-        font-size: 1.5rem; 
-        letter-spacing: 5px; 
-        padding: 40px 0; 
+    .impact-ribbon {
+        flex-direction: column;
+        gap: 15px;
+        font-size: 1.3rem;
+        letter-spacing: 5px;
+        padding: 30px 0;
     }
-    
+
     .footer-main-grid { grid-template-columns: 1fr; text-align: center; gap: 40px; }
-    footer { padding: 80px 5% 40px; }
-    
+    footer { padding: 60px 5% 40px; }
+
     /* Content Cards & Forms */
-    .feature-box { padding: 30px 20px; border-left: none; border-top: 8px solid var(--gold); }
-    .form-wrapper { padding: 30px 20px; margin: 0 15px; }
-    
+    .feature-box { padding: 25px 20px; border-left: none; border-top: 6px solid var(--gold); }
+    .form-wrapper { padding: 25px 15px; margin: 0; }
+
     /* Forces any multi-column form grids to stack vertically */
     .form-wrapper form > div[style*="grid-template-columns"] { grid-template-columns: 1fr !important; }
-    
+
     /* Donation buttons - 2x2 grid instead of 4 in a row */
     .donation-amounts { grid-template-columns: 1fr 1fr; gap: 10px; }
     .amount-btn { padding: 15px; font-size: 1.2rem; }
 
     /* Impact List */
-    .impact-item, .impact-item.alt { 
-        flex-direction: column; 
-        text-align: center; 
-        padding: 30px 20px; 
+    .impact-item, .impact-item.alt {
+        flex-direction: column;
+        text-align: center;
+        padding: 25px 20px;
     }
-    .impact-item { border-left: none; border-top: 8px solid var(--navy); }
-    .impact-item.alt { border-right: none; border-top: 8px solid var(--gold); }
-    
+    .impact-item { border-left: none; border-top: 6px solid var(--navy); }
+    .impact-item.alt { border-right: none; border-top: 6px solid var(--gold); }
+
     /* Scripture Section */
-    .scripture-banner { padding: 60px 5%; }
-    .scripture-banner blockquote { font-size: 1.5rem; }
+    .scripture-banner { padding: 50px 5%; }
+    .scripture-banner blockquote { font-size: 1.4rem; }
+
+    /* Image frame shadow fix */
+    .img-frame img { box-shadow: 20px 20px 0 var(--gold); }
+
+    /* Give page grid fix */
+    .modern-grid[style] { gap: 40px !important; }
 }
 
 /* Extra Small Mobile Devices */
 @media (max-width: 480px) {
-    /* Stacks the donation buttons to a single column */
     .donation-amounts { grid-template-columns: 1fr; }
-    .hero-inner h1 { font-size: 2.8rem; }
-    .inner-hero-inner h1 { font-size: 2.2rem; }
-    h2 { font-size: 2.2rem; }
+    .hero-inner h1 { font-size: 2.2rem; letter-spacing: -1px; }
+    .hero-inner p { font-size: 1rem; }
+    .inner-hero-inner h1 { font-size: 2rem; }
+    h2 { font-size: 2rem; }
+    .brand { font-size: 1.3rem; }
+    .brand-logo { height: 35px; }
+    .impact-ribbon { font-size: 1.1rem; letter-spacing: 3px; }
+    .inner-masthead { height: 45vh; }
+    .masthead { height: 85vh; }
 }
