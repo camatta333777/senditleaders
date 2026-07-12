@@ -15,6 +15,7 @@
     <meta name="twitter:title" content="SEND IT LEADERS | The Pursuit of Truth">
     <meta name="twitter:description" content="Equipping purpose-driven leaders to lead with truth and integrity. Strengthening resilience worldwide.">
     <meta name="twitter:image" content="https://senditleaders.com/logo.jpeg">
+    <link rel="icon" type="image/jpeg" href="logo.jpeg">
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
@@ -31,10 +32,11 @@
     <header id="header">
         <div class="nav-flex">
             <a href="index.html" class="brand"><img src="logo.jpeg" alt="Send It Leaders" class="brand-logo">SEND IT <span>LEADERS</span></a>
-            <button class="hamburger" onclick="document.querySelector('.menu-list').classList.toggle('open')" aria-label="Menu">
+            <button class="hamburger" id="hamburger-btn" aria-label="Menu">
                 <span></span><span></span><span></span>
             </button>
-            <ul class="menu-list">
+            <ul class="menu-list" id="mobile-menu">
+                <li class="mobile-close-li"><button class="mobile-close" id="close-menu-btn" aria-label="Close menu">&times;</button></li>
                 <li><a href="index.html">Home</a></li>
                 <li><a href="about.html">Our Vision</a></li>
                 <li><a href="programs.html">Impact</a></li>
@@ -74,12 +76,73 @@
         </div>
     </section>
 
+    <!-- Stats Counter Section -->
+    <section class="stats-section">
+        <div class="stat-item">
+            <div class="stat-number" data-target="4">0</div>
+            <div class="stat-label">Impact Programs</div>
+        </div>
+        <div class="stat-item">
+            <div class="stat-number" data-target="12" data-suffix="+">0</div>
+            <div class="stat-label">Communities Served</div>
+        </div>
+        <div class="stat-item">
+            <div class="stat-number" data-target="100" data-suffix="%">0</div>
+            <div class="stat-label">Donor-Funded Mission</div>
+        </div>
+        <div class="stat-item">
+            <div class="stat-number" data-target="1">0</div>
+            <div class="stat-label">Pursuit of Truth</div>
+        </div>
+    </section>
+
     <section class="section-flow" style="background: #f1f5f9;">
         <div class="flex-center">
             <h2>Our Global Mandate</h2>
             <div class="feature-box">
                 <p style="font-size: 1.6rem; font-weight: 300;">We are organized exclusively for charitable, religious, and educational purposes. From leadership development to global humanitarian services, our goal is to empower the vulnerable and the visionary alike.</p>
             </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section class="section-flow testimonials-section">
+        <div class="flex-center">
+            <div class="divider-gold"></div>
+            <h2>What People Are Saying</h2>
+        </div>
+        <div class="testimonials-grid">
+            <div class="testimonial-card">
+                <div class="testimonial-quote">"Send It Leaders gave me the tools and mindset to lead with conviction. Their approach to spiritual resilience has transformed how I serve my community."</div>
+                <div class="testimonial-author">
+                    <strong>Community Leader</strong>
+                    <span>Leadership Program Participant</span>
+                </div>
+            </div>
+            <div class="testimonial-card">
+                <div class="testimonial-quote">"The counseling and consolation services provided by this team were exactly what our first responders needed. Truly meeting people where they are."</div>
+                <div class="testimonial-author">
+                    <strong>First Responder</strong>
+                    <span>Counseling Program</span>
+                </div>
+            </div>
+            <div class="testimonial-card">
+                <div class="testimonial-quote">"Their revitalization evaluation helped our church identify key areas for growth. The leadership development training was outstanding."</div>
+                <div class="testimonial-author">
+                    <strong>Pastor</strong>
+                    <span>Revitalization Program</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Banner -->
+    <section class="cta-banner">
+        <h2>Ready to Make a Difference?</h2>
+        <p>Join us in equipping leaders and strengthening communities worldwide.</p>
+        <div style="display: flex; gap: 20px; justify-content: center; flex-wrap: wrap;">
+            <a href="give.html" class="btn-cta-nav" style="background: var(--gold); padding: 20px 50px; font-size: 1rem;">GIVE HOPE</a>
+            <a href="contact.html" class="btn-cta-nav" style="background: transparent; border: 2px solid var(--white); padding: 20px 50px; font-size: 1rem; color: var(--white) !important;">CONNECT WITH US</a>
         </div>
     </section>
 
@@ -94,6 +157,7 @@
                 <a href="about.html">Our Vision</a>
                 <a href="programs.html">Impact Programs</a>
                 <a href="contact.html">Connect</a>
+                <a href="give.html">Give Hope</a>
             </div>
             <div>
                 <h4>Global HQ</h4>
@@ -104,10 +168,13 @@
                 <a href="give.html" class="btn-cta-nav">Donate Today</a>
             </div>
         </div>
-        <div style="margin-top: 120px; text-align: center; opacity: 0.5;">
+        <div style="margin-top: 80px; text-align: center; opacity: 0.5;">
             <p>&copy; 2026 SEND IT Incorporated. All Rights Reserved.</p>
         </div>
     </footer>
+
+    <!-- Back to Top Button -->
+    <button class="back-to-top" id="backToTop" aria-label="Back to top">&#9650;</button>
 
     <script>
         // Header Transformation
@@ -118,6 +185,26 @@
             } else {
                 header.classList.remove('active');
             }
+
+            // Back to top button
+            const btn = document.getElementById('backToTop');
+            if (window.scrollY > 600) {
+                btn.classList.add('visible');
+            } else {
+                btn.classList.remove('visible');
+            }
+        });
+
+        document.getElementById('backToTop').addEventListener('click', () => {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        });
+
+        // Mobile menu toggle
+        document.getElementById('hamburger-btn').addEventListener('click', () => {
+            document.getElementById('mobile-menu').classList.add('open');
+        });
+        document.getElementById('close-menu-btn').addEventListener('click', () => {
+            document.getElementById('mobile-menu').classList.remove('open');
         });
 
         // Scroll Reveal Intersection Observer
@@ -132,6 +219,32 @@
         document.querySelectorAll('.section-flow').forEach(section => {
             observer.observe(section);
         });
+
+        // Animated Counters
+        const counterObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    const counters = entry.target.querySelectorAll('.stat-number');
+                    counters.forEach(counter => {
+                        const target = parseInt(counter.getAttribute('data-target'));
+                        const suffix = counter.getAttribute('data-suffix') || '';
+                        let current = 0;
+                        const increment = Math.max(1, Math.floor(target / 40));
+                        const timer = setInterval(() => {
+                            current += increment;
+                            if (current >= target) {
+                                current = target;
+                                clearInterval(timer);
+                            }
+                            counter.textContent = current + suffix;
+                        }, 40);
+                    });
+                    counterObserver.unobserve(entry.target);
+                }
+            });
+        }, { threshold: 0.5 });
+
+        document.querySelectorAll('.stats-section').forEach(s => counterObserver.observe(s));
 
         // Intro Sequence — only play on first visit per session
         window.addEventListener('load', () => {

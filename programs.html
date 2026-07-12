@@ -12,6 +12,7 @@
     <meta property="og:type" content="website">
     <meta property="og:site_name" content="SEND IT LEADERS">
     <meta name="twitter:card" content="summary_large_image">
+    <link rel="icon" type="image/jpeg" href="logo.jpeg">
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
@@ -19,10 +20,11 @@
     <header id="header" class="active">
         <div class="nav-flex">
             <a href="index.html" class="brand" style="color: var(--navy);"><img src="logo.jpeg" alt="Send It Leaders" class="brand-logo">SEND IT <span>LEADERS</span></a>
-            <button class="hamburger" onclick="document.querySelector('.menu-list').classList.toggle('open')" aria-label="Menu">
+            <button class="hamburger" onclick="document.getElementById('mobile-menu').classList.add('open')" aria-label="Menu">
                 <span></span><span></span><span></span>
             </button>
-            <ul class="menu-list">
+            <ul class="menu-list" id="mobile-menu">
+                <li class="mobile-close-li"><button class="mobile-close" onclick="document.getElementById('mobile-menu').classList.remove('open')" aria-label="Close menu">&times;</button></li>
                 <li><a href="index.html" style="color: var(--navy);">Home</a></li>
                 <li><a href="about.html" style="color: var(--navy);">Our Vision</a></li>
                 <li><a href="programs.html" style="color: var(--navy);">Impact</a></li>

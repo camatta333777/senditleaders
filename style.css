@@ -209,6 +209,115 @@ textarea.form-control { resize: vertical; min-height: 150px; }
 .scripture-banner blockquote { font-family: 'Playfair Display', serif; font-size: 2.2rem; font-style: italic; margin-bottom: 20px; line-height: 1.4; }
 .scripture-banner cite { font-size: 1rem; text-transform: uppercase; letter-spacing: 3px; font-weight: 700; opacity: 0.8; }
 
+/* --- STATS COUNTER SECTION --- */
+.stats-section {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 0;
+    background: var(--navy);
+    color: var(--white);
+    text-align: center;
+    padding: 80px 8%;
+}
+.stat-item { padding: 20px; border-right: 1px solid rgba(255,255,255,0.1); }
+.stat-item:last-child { border-right: none; }
+.stat-number {
+    font-family: 'Playfair Display', serif;
+    font-size: 4rem;
+    font-weight: 900;
+    color: var(--gold);
+    line-height: 1;
+    margin-bottom: 10px;
+}
+.stat-label {
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    font-size: 0.75rem;
+    font-weight: 700;
+    opacity: 0.7;
+}
+
+/* --- TESTIMONIALS --- */
+.testimonials-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 30px;
+    margin-top: 50px;
+}
+.testimonial-card {
+    background: var(--white);
+    padding: 40px 30px;
+    border-top: 5px solid var(--gold);
+    box-shadow: 0 15px 40px rgba(0,0,0,0.06);
+    transition: var(--transition-ultra);
+    position: relative;
+}
+.testimonial-card::before {
+    content: '\201C';
+    font-family: 'Playfair Display', serif;
+    font-size: 5rem;
+    color: var(--gold);
+    opacity: 0.2;
+    position: absolute;
+    top: 10px;
+    left: 20px;
+    line-height: 1;
+}
+.testimonial-card:hover { transform: translateY(-8px); box-shadow: 0 25px 60px rgba(0,0,0,0.1); }
+.testimonial-quote {
+    font-size: 1rem;
+    color: var(--text-muted);
+    font-style: italic;
+    line-height: 1.8;
+    margin-bottom: 25px;
+}
+.testimonial-author strong { display: block; color: var(--navy); font-size: 1rem; }
+.testimonial-author span { font-size: 0.85rem; color: var(--text-muted); }
+
+/* --- CTA BANNER --- */
+.cta-banner {
+    background: linear-gradient(135deg, var(--navy) 0%, #001a3a 100%);
+    color: var(--white);
+    text-align: center;
+    padding: 100px 8%;
+}
+.cta-banner h2 { color: var(--white); margin-bottom: 15px; }
+.cta-banner p { font-size: 1.3rem; opacity: 0.8; margin-bottom: 40px; }
+
+/* --- BACK TO TOP BUTTON --- */
+.back-to-top {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    width: 50px;
+    height: 50px;
+    background: var(--navy);
+    color: var(--gold);
+    border: 2px solid var(--gold);
+    border-radius: 50%;
+    font-size: 1.2rem;
+    cursor: pointer;
+    opacity: 0;
+    visibility: hidden;
+    transition: 0.4s;
+    z-index: 8000;
+}
+.back-to-top.visible { opacity: 1; visibility: visible; }
+.back-to-top:hover { background: var(--gold); color: var(--navy); }
+
+/* --- MOBILE CLOSE BUTTON --- */
+.mobile-close-li { display: none; }
+.mobile-close {
+    background: none;
+    border: none;
+    color: var(--white);
+    font-size: 3rem;
+    cursor: pointer;
+    position: absolute;
+    top: 25px;
+    right: 30px;
+}
+
 /* --- RESPONSIVE DESIGN (MOBILE & TABLET) --- */
 
 /* Hide brand text at medium widths, keep logo only */
@@ -253,6 +362,9 @@ textarea.form-control { resize: vertical; min-height: 150px; }
     .hero-inner h1 { font-size: 5rem; }
     .inner-hero-inner h1 { font-size: 3.5rem; }
     .divider-gold { margin: 0 auto 40px; }
+    .mobile-close-li { display: block; }
+    .stats-section { grid-template-columns: repeat(2, 1fr); }
+    .testimonials-grid { grid-template-columns: 1fr; }
 }
 
 /* Mobile Phones (iPhones, Androids) */
@@ -302,6 +414,12 @@ textarea.form-control { resize: vertical; min-height: 150px; }
     .scripture-banner blockquote { font-size: 1.4rem; }
     .img-frame img { box-shadow: 20px 20px 0 var(--gold); }
     .modern-grid[style] { gap: 40px !important; }
+    .stats-section { grid-template-columns: repeat(2, 1fr); padding: 50px 5%; }
+    .stat-number { font-size: 2.8rem; }
+    .stat-item { border-right: none; border-bottom: 1px solid rgba(255,255,255,0.1); padding: 20px 10px; }
+    .cta-banner { padding: 60px 5%; }
+    .cta-banner h2 { font-size: 2rem; }
+    .back-to-top { bottom: 20px; right: 20px; width: 44px; height: 44px; }
 }
 
 /* Extra Small Mobile Devices */
