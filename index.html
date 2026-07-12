@@ -133,11 +133,17 @@
             observer.observe(section);
         });
 
-        // Intro Sequence Removal
+        // Intro Sequence — only play on first visit per session
         window.addEventListener('load', () => {
-            setTimeout(() => {
-                document.getElementById('site-loader').classList.add('hidden');
-            }, 6200);
+            const loader = document.getElementById('site-loader');
+            if (sessionStorage.getItem('intro_seen')) {
+                loader.style.display = 'none';
+            } else {
+                sessionStorage.setItem('intro_seen', 'true');
+                setTimeout(() => {
+                    loader.classList.add('hidden');
+                }, 6200);
+            }
         });
     </script>
 </body>
